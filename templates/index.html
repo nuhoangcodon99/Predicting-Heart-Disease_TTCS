@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Trang tra cứu bệnh tim</title>
+</head>
+
+<body>
+  <div>
+    <h2 class="signup__heading"> Chuẩn đoán bệnh tim </h2>
+    <form method="post" action="/index" class="signup__form" autocomplete="off">
+      <div class="form__group">
+        <input type="text" class="form__input" name="name" placeholder="Họ và Tên" />
+      </div>
+      <div class="form__group form__group--2">
+        <input type="number" class="form__input" name="age" placeholder="Tuổi" />
+        <input type="text" class="form__input" name="sex" placeholder="Giới tính" />
+      </div>
+      <div class="form__group form__group--2">
+        <h3 class="form__input">Tức Ngực</h3>
+        <select class="form__input" name="cp">
+          <option>None</option>
+          <option>Typical angina</option>
+          <option>Atypical angina</option>
+          <option>Non-anginal pain</option>
+          <option>Asymptomatic</option>
+        </select>
+
+      </div>
+      <div class="form__group form__group--2 ">
+        <input type="number" class="form__input" name="trestbps" placeholder="Huyết áp lúc nghỉ" />
+        <input type="number" class="form__input" name="chol" placeholder="Lượng cholestoral trong máu" />
+      </div>
+      <div class="form__group form__group--2">
+        <input type="text" class="form__input" name="fbs" placeholder="Lượng đường trong máu > 120 mg/dl" />
+        <input type="number" class="form__input" name="thalach" placeholder="Nhịp tim tối đa đạt được" />
+      </div>
+      <div class="form__group form__group--2">
+        <h3 class="form__input">Điện tâm đồ</h3>
+        <select class="form__input" name="restecg">
+          <option>None</option>
+          <option>Không có gì đáng lưu ý</option>
+          <option>Sóng ST-T bất thường</option>
+          <option>Phì đại thất trái có thể hoặc chắc chắn</option>
+        </select>
+      </div>
+      <div class="form__group form__group--2">
+        <input type="text" class="form__input" name="exang" placeholder="Đau thắt ngực khi tập thể dục không" />
+        <input type="number" class="form__input" name="oldpeak" placeholder="Chênh lệch ST lúc tập thể dục và nghỉ" />
+      </div>
+      <div class="form__group form__group--2">
+        <h3 class="form__input">Độ dốc tại đỉnh ST khi tập thể dục</h3>
+        <select class="form__input" name="slope">
+          <option>None</option>
+          <option>Upsloping</option>
+          <option>Flatsloping</option>
+          <option>Downslopins</option>
+        </select>
+      </div>
+      <div class="form__group form__group--2">
+        <input type="number" class="form__input" name="ca" placeholder="Số lượng đoạn mạch chính" />
+        <input type="number" class="form__input" name="thal" placeholder="Dấu hiệu của sóng" />
+      </div>
+      <div class="form__group form__group--2">
+        <h3 class="form__input">Model</h3>
+        <select class="form__input" name="md">
+          <option>None</option>
+          <option>K-Nearest Neighbors</option>
+          <option>Support Vector Machine</option>
+          <option>Decision Tree</option>
+          <option>Random Forest</option>
+        </select>
+      </div>
+      <div class="form__group">
+        <button type="submit" class="form__submit" onclick="validateForm()">
+          <span class="form__submit-text"> Chuẩn đoán </span><i class="fa fa-long-arrow-right form__submit-icon"></i>
+        </button>
+      </div>
+      <div class="form__tos">
+        <input type="checkbox" name="" id="tos" />
+        <label for="tos"> Tôi đảm bảo những gì kê khai
+      </div>
+      <script>
+        function validateForm() {
+          var checkbox = document.getElementById("tos");
+          if (!checkbox.checked) {
+            var confirmation = confirm("Bạn phải chắc chắn với những gì đã khai báo");
+            if (confirmation) {
+              // Tiếp tục xử lý biểu mẫu nếu người dùng chọn "OK"
+              // Ví dụ: gửi biểu mẫu đến máy chủ hoặc thực hiện các tác vụ khác
+              // Không có return false; để ngăn chặn tải lại trang
+            } else {
+              return false;
+            }
+          }
+        }
+      </script>
+  </div>
+  </form>
+  </div>
+</body>
+
+</html>
